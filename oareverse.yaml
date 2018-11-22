@@ -1,0 +1,34 @@
+datasource_username: user
+datasource_databaseDriver: org.postgresql.Driver
+datasource_password: password
+datasource_databaseUrl: jdbc:postgresql:oativa
+datasource_schema: ajcandido
+
+destination_db: postgres
+#destination_db: sqlserver
+
+destination_path: src/main/java/org/jpareverse/dbase
+output_package: org.jpareverse.dbase
+base_model_package: org.jpareverse.ormmodel
+
+#flat_mode: N
+lombok: Y
+ebean_annotations: Y
+#use_model: Y
+#version_field:
+#size_constants: N
+
+baseModels:
+- {fields: 'id,version, cod_lancamento, whencreated, whenmodified,whocreated,whomodified',  file: BaseModel.java}
+- {fields: 'id,version, whencreated, whenmodified,whocreated,whomodified', file: BaseModelSys.java}
+
+
+
+tables_postpone:
+ - { name:  neworders      , alias: order            }
+
+
+tables:
+  - { name:  clients       , alias: client         }
+  - { name:  orders      , alias: order            }
+ 
